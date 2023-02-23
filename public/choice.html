@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+            font-stretch: expanded;
+            }
+    </style>
+    <meta charset="utf-8">
+    <title>Assignment 3</title>
+</head>
+
+<body>
+    <div>It is nice to meet you <span id="choi"></span></div>
+    <form id="form" action="./stock_order" method="POST">
+        <p>What is your name?<input id="name" name="name" type="text"><button type="submit">Submit</button></p>
+    </form>
+    <script>
+        let choices = localStorage.getItem('choice')
+        document.getElementById('choi').textContent = choices
+    </script>
+</body>
+
+</html>

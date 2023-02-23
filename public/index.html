@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+            font-stretch: expanded;
+            }
+    </style>
+    <meta charset="utf-8">
+    <title>Assignment 3</title>
+</head>
+
+<body>
+    <h1>Welcome to Kiran's Fitness App!</h1>
+    <p>You will learn all about where you stand in the BMI scale</p>
+    <p>You will learn all about how many calories you should typically eat daily to reduce weight, maintain weight or gain muscle</p>
+    <form id="form" action="./weight" method="POST">
+        <p>What is your name?<input id="name" name="name" type="text"><button type="submit">Submit</button></p>
+    </form>
+
+    <script>
+        const form = document.getElementById('form')
+        const name = document.getElementById('name')
+        form.addEventListener('submit', function() {
+            event.preventDefault
+            const firstname = name.value
+
+            localStorage.setItem('name', firstname)
+            window.location.href = "weight.html"; 
+        })
+    </script>
+</body>
+
+</html>

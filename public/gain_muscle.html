@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+            font-stretch: expanded;
+            }
+    </style>
+    <meta charset="utf-8">
+    <title>Assignment 3</title>
+</head>
+
+<body>
+    <h1>Gain muscle</h1>
+    <p>Again, if you want to change your choice, press the back button and click submit again when you are done</p>
+    <div>To gain muscle you must roughly eat in a calorie surplus of 500 calories which is, <span id="calorie_num"></span> calories</div>
+    <p>In your case. This does NOT mean just eat junk food. You must, according to Healthline, consume nutrient-dense whole</p>
+    <p>foods such as rice, nuts, avocados, whole eggs etc. The Golden rule to remember is that 6 small meals are better than 3 large meals.</p>
+    <form id="cont" action="./continue" method="POST">
+        <p>Would you like to continue? Type 1 for yes and 2 for no<input id="coue" name="continue" type="number"><button type="submit">Submit</button></p>
+    </form>
+    <script>
+        const name = localStorage.getItem('daily_cal') - (-500)
+        document.getElementById('calorie_num').textContent = name
+    </script>
+</body>
+
+</html>

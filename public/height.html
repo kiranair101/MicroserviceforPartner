@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+            font-stretch: expanded;
+            }
+    </style>
+    <meta charset="utf-8">
+    <title>Assignment 3</title>
+</head>
+
+<body>
+    <h1>Height</h1>
+    <div>Your weight is currently <span id="weight"></span></div>
+    <p>Press the back button in case you change your answer and click submit again</p>
+    <form id="sammy" action="/BMI" method="POST">
+        <p>What is your height in inches?<input id="height" name="height" type="number"><button type="submit">Submit</button></p>
+        <p>Reminder: There is 12 inches in a foot</p>
+    </form>
+    <script>
+        const weight = localStorage.getItem('weight')
+        document.getElementById('weight').textContent = weight
+    </script>
+    <script>
+        const form = document.getElementById('sammy')
+        const height = document.getElementById('height')
+        form.addEventListener('submit', function() {
+            event.preventDefault
+            const heightn = height.value
+            localStorage.setItem('height', heightn)
+            window.location.href = "BMI.html";
+        })
+    </script>
+</body>
+
+</html>

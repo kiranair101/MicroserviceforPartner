@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+            font-stretch: expanded;
+            }
+    </style>
+    <meta charset="utf-8">
+    <title>Assignment 3</title>
+</head>
+
+<body>
+    <h1>Lose Weight</h1>
+    <p>Again, if you want to change your choice, press the back button and click submit again when you are done</p>
+    <p>To lose weight, according to Harvard Health, you should roughly eat about 500 to 1000 calories than your</p>
+    <div> weight-maintenance calories, which in your case is about <span id="calorie_num"></span> calories</div>
+    
+    <script>
+        let name = localStorage.getItem('daily_cal') - 700
+        document.getElementById('calorie_num').textContent = name
+    </script>
+</body>
+
+</html>

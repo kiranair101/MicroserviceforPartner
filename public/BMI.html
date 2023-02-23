@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+            font-stretch: expanded;
+            }
+    </style>
+    <meta charset="utf-8">
+    <title>Assignment 3</title>
+</head>
+<style>
+    table, th, td {
+      border:1px solid black;
+    }
+</style>
+
+<body>
+    <h1>BMI</h1>
+
+    <div>Your weight is currently in pounds: <span id="weight"></span></div>
+    <div>Your height is currently in inches: <span id="height"></span></div>
+    <p>If the information above is incorrect, press the back button and change them</p>
+    <div>Your BMI is currently: <span id="bmi"></span></div>
+    <div><span id="stand"></span></div>
+    <table>
+        <tr>
+          <th>BMI</th>
+          <th>Weight Status</th>
+        </tr>
+        <tr>
+          <td>Below 18.5</td>
+          <td>Underweight</td>
+        </tr>
+        <tr>
+            <td>18.5 - 24.9</td>
+            <td>Normal weight</td>
+        </tr>
+        <tr>
+            <td>25.0 - 29.9</td>
+            <td>Overweight</td>
+        </tr>
+        <tr>
+            <td>30.0 - 34.9</td>
+            <td>Obesity Class I</td>
+        </tr>
+        <tr>
+            <td>35.0 - 39.9</td>
+            <td>Obesity Class II</td>
+        </tr>
+        <tr>
+            <td>Above 40</td>
+            <td>Obesity Class III</td>
+        </tr>
+    </table>
+    <form id="kam" action="./calorie" method="POST">
+        <p>If you want to lose weight, type 1. If you want to maintain weight, type 2. If you want to gain muscle, type 3. If you would like to exit, type 0: <input id="s" name="choice" type="number"><button type="submit">Submit</button></p>
+    </form>
+    <p>If you would like to learn more click the link: <a href="">Learn More</a></p>
+    <script>
+        const form = document.getElementById('kam')
+        const choices = document.getElementById('s')
+        form.addEventListener('submit', function() {
+        event.preventDefault
+        const choice = choices.value
+
+        localStorage.setItem('choice', choice)
+        window.location.href = "lose_weight.html"; 
+        window.location.href = "gain_muscle.html"; 
+        window.location.href = "maintain_weight.html"; 
+        window.location.href = "calorie.html"; 
+        window.location.href = "choice.html"
+    })
+    </script>
+    <script>
+        function BMI (height_in_inches, weight_in_pounds) {
+        const BMI = ((weight_in_pounds) / ((height_in_inches) ** 2) * 703).toFixed(1);
+        return BMI;
+        }
+        const weight = localStorage.getItem('weight')
+        document.getElementById('weight').textContent = weight
+        const height = localStorage.getItem('height')
+        document.getElementById('height').textContent = height
+    
+        let result = BMI(height, weight)
+        console.log(result)
+        if (result < 18.5){
+            message = "You are currently underweight";
+        } else if ((18.5 <= result) && (result <= 24.9)) {
+            message = "You are currently at normal weight";
+        } else if ((25.0 <= result) && (result <= 29.9)){
+            message = "You are currently overweight";
+        } else if ((30.0 <= result) && (result <= 34.9)) {
+            message = "You are currently Obese Class I";
+        } else if ((35.0 <= result) && (result <= 39.9)) {
+            message = "You are currently Obese Class II";
+        } else if (result >= 40) {
+            message = "You are currently Obese Class III";
+        }
+        document.getElementById("bmi").innerHTML = result;
+        document.getElementById("stand").innerHTML = message;
+        
+    </script>
+</body>
+
+</html>

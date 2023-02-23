@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-family: sans-serif, "Helvetica Neue", "Lucida Grande", Arial;
+            font-stretch: expanded;
+            }
+    </style>
+    <meta charset="utf-8">
+    <title>Assignment 3</title>
+</head>
+
+<body>
+    <h1>Calories</h1>
+    <p>If you want to change your choice, press the back button and click submit again when you are done</p>
+    <form id="ca" action="/choice" method="POST">
+        <p>Please give a rough estimate on how many calories you eat per day. The more accurate the answer the better. <input id="cal" name="calorie" type="number"><button type="submit">Submit</button></p>
+    </form>
+
+<script>
+    const form = document.getElementById('ca')
+    const calories = document.getElementById('cal')
+    form.addEventListener('submit', function() {
+        event.preventDefault
+        const cals = calories.value
+
+        localStorage.setItem('daily_cal', cals)
+        window.location.href = "lose_weight.html"; 
+        window.location.href = "gain_muscle.html"; 
+        window.location.href = "maintain_weight.html"; 
+    })
+</script>
+</body>
+
+</html>
